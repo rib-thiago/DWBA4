@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../css/formulario.css" rel="stylesheet" type="text/css" />
     <link rel="icon" href="../media/favicon.ico" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="../css/signin.css" rel="stylesheet">
+
     <title>Entrar - IFSP - Pirituba - DWBA4</title>
 </head>
 <body>
@@ -16,24 +19,23 @@
     </header>
 
     <main>
-        <h1>Entrar</h1>
-        <form method="post">
-            <div>
-                <label for="login-usuario">Usuário</label>
-                <input name="login-usuario" type="email" id="login-usuario" required> 
-            </div>
-            <br>
-            <div>
-                <label for="login-senha">Senha</label>
-                <input name="login-senha" type="password" id="login-senha" required>
-            </div>
-            <br>
-            <div>
-                <button type="submit">Entrar</button>
-                <a href="#">Esqueci a Senha</a>
-            </div>
-            
-        </form>
+        <form class="form-signin">
+            <img class="mb-4" src="../media/ifsp.png" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 font-weight-normal">Faça login</h1>
+            <label for="inputEmail" class="sr-only">Endereço de email</label> 
+            <input type="email" id="inputEmail" class="form-control" placeholder="Seu email" required="" autofocus=""> 
+            <label for="inputPassword" class="sr-only">Senha</label> 
+            <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required="">
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me"> Lembrar de mim</label>
+                </div>
+                <div>
+                    <a href="#">Esqueci a senha</a>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                <p class="mt-5 mb-3 text-muted">© 2020</p>
+            </form>
     </main>    
 
     <footer>
