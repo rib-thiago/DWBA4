@@ -1,57 +1,38 @@
 <!DOCTYPE html>
-
 <html>
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../css/estilo.css" rel="stylesheet" type="text/css" />
-    <link rel="icon" href="../media/favicon.ico" />
-    <title>SOBRE - IFSP - Pirituba - DWBA4</title>
+    <link rel="icon" href="../imagens/favicon.ico" />
+
+    <title>Sobre - IFSP - Pirituba - DWBA4</title>
   </head>
 
   <body>
     <header id="cabecalho">
       <nav>
-        <object width="100%" height="300px" data="menu.html"></object>
+        <object width="100%" height="200px" data="menu.html"></object>
       </nav>
     </header>
 
     <main>
-      <h1>Sobre</h1>
-      <figure>
-        <img class="lenin" src="../media/lenin.jpeg" alt="foto lenin" />
-        <figcaption>
-          lenin at the parade of vsevobuch troops on the red square on 25 may
-          1919
-        </figcaption>
-      </figure>
-
-      <h3>
-        <a
-          href="https://www.marxists.org/archive/lenin/works/1905/nov/18.htm"
-          target="_blank"
-          >The Denouement is At Hand</a
-        >
-      </h3>
-      <blockquote>
-        The struggle is approaching its denouement, the answer to the question
-        whether actual power is to remain with the tsar's government. As for
-        recognition of the revolution, it has now been generally recognised. It
-        was recognised quite long ago by Mr. Struve and the Osvobozhdeniye
-        gentry. It is now recognised by Mr. Witte and by Nicholas Romanov.
-        <q>I promise you anything you wish</q>, says the tsar,
-        <q>only let me retain power, let me fulfil my own promises</q>. That is
-        the gist of the tsar's Manifesto, and it obviously had to spark off a
-        determined struggle. <q>I grant you everything except power</q>, tsarism
-        declares. <strong>Everything is illusory except power</strong>, the
-        revolutionary people reply.
-      </blockquote>
-      <cite>Vladimir Lenin, 1905</cite>
+      <div id="sobre"></div>
     </main>
 
     <footer>
-      <object width="100%" height="200px" data="footer.html"></object>
+      <object width="100%" height="200px" data="rodape.html"></object>
     </footer>
+
+    <script
+      src="https://unpkg.com/react@16/umd/react.production.min.js"
+      crossorigin=""
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+      crossorigin=""
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="../js/sobre.js" type="text/babel"></script>
   </body>
 </html>
