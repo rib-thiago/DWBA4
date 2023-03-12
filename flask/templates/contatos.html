@@ -1,9 +1,9 @@
 <html>
-  <head>
-    <title>IFSP - Campus Pirituba</title>        
-  </head>
-  <body>
-    <section>
+<head>
+    <title>IFSP - Campus Pirituba</title>
+</head>
+<body>
+  <section>
       <div>
         <h1>IFSP - Campus Pirituba</h1>        
         <form action="/" method="POST">          
@@ -17,39 +17,33 @@
                 <li>
                     <label for="contato-email">E-Mail</label>
                     <input type="email" name="email" id="contato-email" required/>
-                </li>              
-            </ul> 
-            <li>
-                <label for="contato-telefone">Telefone</label>
-                <input name="telefone" type="tel" id="contato-telefone" required> 
-                <span>(99) 99999-9999</span>
-            </li>
-            <li>
-                <label for="contato-assunto">Assunto</label>
-                <select name="assunto" id="assunto" required>
-                    <option>-- Selecione --</option>
-                    <option>Reclamação</option>
-                    <option >Sugestão</option>
-                </select>
-            </li>
-            <li>
-                <label for="contato-mensagem">Mensagem</label>
-                <textarea name="mensagem" id="contato-mensagem"></textarea>
-            </li>
-            <li>
-                <fieldset>
-                    <legend>Opções de Resposta</legend>
-                    <label for="contato-resposta-email">
-                        "E-Mail "
-                        <input name="resposta" type="checkbox" id="contato-resposta-email" value="email"> 
-                    </label>
-                    <label for="contato-resposta-telefone">
-                        "Telefone "
-                        <input name="resposta" type="checkbox" id="contato-resposta-telefone" value="email">
-                    </label>
-                </fieldset>
-            </li> 
-            <br>          
+                </li>
+                <li>
+                    <label for="contato-telefone">Telefone</label>
+                    <input type="text" name="telefone" id="contato-telefone" required/>
+                </li>
+                <li>
+                 <legend>Assunto</legend>
+                    <select name="assunto">
+                      <option value="default">-- Selecione --</option>
+                      <option value="Reclamação">Reclamação</option>
+                      <option value="Sugestão">Sugestão</option> 
+                    </select>
+                    <br><br> 
+                </li>
+                <li>
+                    <label for="contato-telefone">Mensagem</label>
+                    <textarea type="text" name="mensagem" id="contato-mensagem" required></textarea>
+                </li> 
+                <li>
+                  <fieldset>
+                    <legend>Opções de resposta</legend>
+                
+                    <input type="checkbox" name="re" id="tel" value="Telefone"> Telefone<br>
+                    <input type="checkbox" name="re" id="email" value="E-Mail"> E-Mail<br>
+                  </fieldset>
+                </li>
+            </ul>            
             <input type="submit" value="Salvar" name="save" />            
           </div>
         </form>
@@ -58,13 +52,14 @@
         </form>          
         <br>  
         <table border='1'>
-         <tr>
-           <th>Nome</th>
-           <th>E-mail</th>
-           <th>Telefone</th>
-           <th>Assunto</th>
-           <th>Mensagem</th>
-           <th>Opções de resposta</th>
+          <tr>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>Telefone</th>
+              <th>Assunto</th>
+              <th>Mensagem</th>
+              <th>Opcao</th>
+              <th>Ação</th>
           </tr>
           {% for value in contatos %}                        
             <tr>
@@ -73,12 +68,17 @@
               <td>{{contatos[value]['telefone'] }}</td>
               <td>{{contatos[value]['assunto'] }}</td>
               <td>{{contatos[value]['mensagem'] }}</td>
-              <td>{{contatos[value]['resposta'] }}</td>
+              <td>{{contatos[value]['re'] }}</td>
+              <td>
+                <form method="POST" action="/deletarContato/{{value}}">
+                  <input type="submit" value="Eliminar Registro" name="deleteOne"/>
+                </form>
+              </td>
             </tr>  
           {% endfor %}                      
         </table>       
           
       </div>
     </section>
-  </body>
+</body>
 </html>
