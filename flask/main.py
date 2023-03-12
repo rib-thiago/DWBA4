@@ -17,7 +17,7 @@ def cadastroContatos():
     contatos = db.get('contatos', {}); 
     print(contatos);
     if flask.request.method == "POST":      
-      contatos[flask.request.form['email']] = {'nome': flask.request.form['nome'], 'telefone': flask.request.form['telefone'],'assunto': flask.request.form['assunto'], 'mensagem': flask.request.form['mensagem'],'re': flask.request.form['re']}
+      contatos[flask.request.form['email']] = {'nome': flask.request.form['nome'], 'telefone': flask.request.form['telefone'],'assunto': flask.request.form['assunto'], 'mensagem': flask.request.form['mensagem'],'resposta': flask.request.form.getlist('resposta')}
     db['contatos'] = contatos
     return flask.render_template('contatos.html', contatos=contatos)
   except Exception as e:
@@ -45,5 +45,24 @@ def deletarContato(email):
     except Exception as e:
       logging.exception(e);
       return flask.render_template('contatos.html');
+
+@app.route('/update/<email>', methods=['POST'])
+def update(email):
+  try:
+    if flask.request.method == "POST":
+      contatos = db.get('contatos', {});
+      contato = {};
+      contato = {'email': email,
+                  'nome': contatos[email]['nome'],
+                  'telefone': contatos[email]['telefone'],
+                  'assunto': contatos[email]['assunto'],
+                  'mensagem': contatos[email]['mensagem'],
+                  'resposta': contatos[email]['resposta']};
+      print(contato);
+      return flask.render_template('contato.html', contato=contato)
+  except Exception as e:
+      logging.exception(e);
+      return flask.render_template('contatos.html');
+    
     
 app.run('0.0.0.0')

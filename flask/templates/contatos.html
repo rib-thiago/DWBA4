@@ -38,9 +38,9 @@
                 <li>
                   <fieldset>
                     <legend>Opções de resposta</legend>
-                
-                    <input type="checkbox" name="re" id="tel" value="Telefone"> Telefone<br>
-                    <input type="checkbox" name="re" id="email" value="E-Mail"> E-Mail<br>
+                    
+                    <input type="checkbox" name="resposta" id="tel" value="Telefone"> Telefone<br>
+                    <input type="checkbox" name="resposta" id="email" value="E-Mail"> E-Mail<br>
                   </fieldset>
                 </li>
             </ul>            
@@ -59,7 +59,7 @@
               <th>Assunto</th>
               <th>Mensagem</th>
               <th>Opcao</th>
-              <th>Ação</th>
+              <th colspan="2">Ações</th>
           </tr>
           {% for value in contatos %}                        
             <tr>
@@ -68,10 +68,15 @@
               <td>{{contatos[value]['telefone'] }}</td>
               <td>{{contatos[value]['assunto'] }}</td>
               <td>{{contatos[value]['mensagem'] }}</td>
-              <td>{{contatos[value]['re'] }}</td>
+              <td>{{contatos[value]['resposta'] }}</td>
               <td>
                 <form method="POST" action="/deletarContato/{{value}}">
                   <input type="submit" value="Eliminar Registro" name="deleteOne"/>
+                </form>
+              </td>
+              <td>
+                <form method="POST" action="/update/{{value}}">
+                  <input type="submit" value="Alterar registro" name="updateOne">                  
                 </form>
               </td>
             </tr>  
